@@ -9,8 +9,11 @@ window.addEventListener('load', init, false);
 
 function init() {
 	console.log('App running!');
-	//1. Declare variables
-	//2. Initialize variables
+	//Declare variables
+	var dataManager = new DataManager();
+	var navManager = new NavManager(dataManager);
+	dataManager.navManager = navManager;
+
 	//3. Program Logic
 	loadWeather();
 
@@ -25,39 +28,36 @@ function init() {
 		var request = e.target;
 		if (request.readyState == XMLHttpRequest.DONE) {
 			if (request.status == 200) {
-				var weatherData = JSON.parse(request.responseText);
-				console.log(weatherData);
+				var data = JSON.parse(request.responseText);
+					for (var key in data) {
+						var appData = data[key];
+						var cityData = data[key].city;
+						var mainData = data[key].main;
+						var windData = data[key].wind;
+						var cloudsData = data[key].clouds;
+						var weatherData = data[key].weather;
 
+						var coord = new Coord(cityData.coord.lon, cityData.coord.lat);
 
-			}
+						var city = new City(cityData.id, cityData.name, cityData.findname, cityData.country, coord);
+
+						var main = new Main(mainData.temp, mainData.pressure, mainData.humidity, mainData.temp_min, mainData.temp_max);
+						
+						var wind = new Wind(windData.speed, windData.deg, windData.var_beg, windData.var_end);
+
+						var clouds = new Clouds(cloudsData.all);
+
+						var weather = new Weather(weatherData.id, weatherData.main, weatherData.description);
+
+						var app = new App(new City(cityData.id, cityData.name, cityData.findname, cityData.country, new Coord(cityData.coord.lon, cityData.coord.lat)), appData.time, new Main(mainData.temp, mainData.pressure, mainData.humidity, mainData.temp_min, mainData.temp_max), new Wind(windData.speed, windData.deg, windData.var_beg, windData.var_end), new Clouds(cloudsData.all), new Weather(weatherData.id, weatherData.main, weatherData.description));
+
+						dataManager.app.push(app);
+						console.log(app);
+					}
+			}else {
+					console.log('Server Error');
+				}
 		}
 	}
 
-	// function requestUsersDataCompleted(e) {
-	// 	var request = e.target;
-
-	// 	if (request.readyState === XMLHttpRequest.DONE) {
-	// 		if (request.status === 200) {
-	// 			var data = JSON.parse(request.responseText);
-	// 			for (var key in data) {
-	// 				var beeData = data[key];
-	// 				var addressData = data[key].address;
-
-	// 				var geo = new Geo(addressData.geo.lat, addressData.geo.lng);
-
-	// 				var address = new Address(addressData.city, geo, addressData.street, addressData.suite, addressData.zipcode);
-
-	// 				var bee = new Bee(beeData.id, beeData.name, beeData.username, beeData.email, beeData.phone, new Address(addressData.city, new Geo(addressData.geo.lat, addressData.geo.lng), addressData.street, addressData.suite, addressData.zipcode));
-	// 				dataManager.bees.push(bee);
-	// 			}
-
-	// 			requestUserPosts();
-	// 			//HACK
-	// 			dataManager.setCurrentBee(dataManager.bees[1]);
-	// 		}
-	// 		else {
-	// 			console.log('Server Error');
-	// 		}
-	// 	}
-	// }
 }

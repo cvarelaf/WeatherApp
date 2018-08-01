@@ -8,7 +8,7 @@
 class DataManager {
 
 	constructor() {
-		this.cities = [];
+		this.app = [];
 		this.currentCity = null;
 		this.navManager = null;
 	}
