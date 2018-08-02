@@ -36,7 +36,11 @@ function init() {
 						var windData = data[key].wind;
 						var cloudsData = data[key].clouds;
 						var weatherData = data[key].weather;
-
+						for(let key = 0; key < appData.length; index++){
+							weatherData = data[key].weather;
+						}
+						console.log(weatherData);
+						
 						var coord = new Coord(cityData.coord.lon, cityData.coord.lat);
 
 						var city = new City(cityData.id, cityData.name, cityData.findname, cityData.country, coord);

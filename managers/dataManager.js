@@ -21,4 +21,12 @@ class DataManager {
 		this.currentCity = city;
 		this.navManager.showCityInfo();
 	}
+
+	addWeather(weather) {
+        this.app.forEach(function (app) {
+            app.weather.push(weather);
+            return;
+        });
+    }
+
 }
