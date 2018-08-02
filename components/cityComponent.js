@@ -26,6 +26,7 @@ class CityComponent extends Component {
         this.climateBtn.onclick = this.climateBtnClick.bind(this);
 
         this.container.app = this.model;
+        console.log(this.model);
     }
 
     climateBtnClick(e) {
