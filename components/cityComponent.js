@@ -17,13 +17,12 @@ class CityComponent extends Component {
         this.container.appendChild(this.country);
         this.container.appendChild(this.climateBtn);
 
-
         //Fill Element
         /*
         Estas olvidando que model es un objeto app y ese tiene una relacions con city
         this.id.innerHTML = this.model.id;
-        this.name.innerHTML = 'Name: ' + this.model.name;
-        this.country.innerHTML = 'Country: ' + this.model.country;
+        REPLACE FOR
+        this.id.innerHTML = this.model.city.id;
         */
         this.id.innerHTML = this.model.city.id;
         this.name.innerHTML = 'Name: ' + this.model.city.name;
@@ -37,6 +36,6 @@ class CityComponent extends Component {
 
     climateBtnClick(e) {
         this.dataManager.showCityInfo(this.model);
-        console.log('Showing ' + this.model.name + '\'s Climate');
+        console.log('Showing ' + this.model.city.name + '\'s Climate');
     }
 }

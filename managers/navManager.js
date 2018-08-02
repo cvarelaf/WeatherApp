@@ -6,14 +6,7 @@ class NavManager {
     }
 
     showCities() {
-        /*
-        //Tu version, estas pasando this.dataManager.app como model.
-        this.dataManager.app.forEach(app => {
-            var cityComponent = new CityComponent(this.dataManager.app, this.cityComponent, this.dataManager);
-        });
-        this.showCityInfo();
-        */
-
+        //Se usa el app como model ya que tiene todos los datos necesarios [no this.dataManager.app]
         this.dataManager.app.forEach(app => {
             var cityComponent = new CityComponent(app, this.cityComponent, this.dataManager);
         });
@@ -21,13 +14,6 @@ class NavManager {
     }
 
     showCityInfo() {
-        if (this.dataManager.currentCity) {
-            this.climateComponent.innerHTML = '';
-            this.climateComponent.innerHTML = 'Climate';
-            this.dataManager.currentCity.forEach(city => {
-                var climateComponent = new ClimateComponent(this.dataManager.app, this.climateComponent, this.dataManager);
-            });
-        }
+        var climateComponent = new ClimateComponent(this.dataManager.currentCity, this.climateComponent, this.dataManager);
     }
-
 }
