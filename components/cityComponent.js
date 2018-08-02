@@ -1,9 +1,9 @@
 class CityComponent extends Component {
 
-        constructor(model, parent, dataManager) {
-            super(model, parent, dataManager);
-            this.container.className = 'cityComponent';
-    
+    constructor(model, parent, dataManager) {
+        super(model, parent, dataManager);
+        this.container.className = 'cityComponent';
+
 
         //Create Elements
         this.id = document.createElement('h1');
@@ -19,9 +19,15 @@ class CityComponent extends Component {
 
 
         //Fill Element
+        /*
+        Estas olvidando que model es un objeto app y ese tiene una relacions con city
         this.id.innerHTML = this.model.id;
         this.name.innerHTML = 'Name: ' + this.model.name;
         this.country.innerHTML = 'Country: ' + this.model.country;
+        */
+        this.id.innerHTML = this.model.city.id;
+        this.name.innerHTML = 'Name: ' + this.model.city.name;
+        this.country.innerHTML = 'Country: ' + this.model.city.country;
         this.climateBtn.innerHTML = 'View Climate';
         this.climateBtn.onclick = this.climateBtnClick.bind(this);
 
@@ -31,6 +37,6 @@ class CityComponent extends Component {
 
     climateBtnClick(e) {
         this.dataManager.showCityInfo(this.model);
-        console.log('Showing ' + this.model.name +'\'s Climate');
-	}
+        console.log('Showing ' + this.model.name + '\'s Climate');
+    }
 }
