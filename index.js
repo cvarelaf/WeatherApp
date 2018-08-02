@@ -52,6 +52,7 @@ function init() {
 					var app = new App(new City(cityData.id, cityData.name, cityData.findname, cityData.country, new Coord(cityData.coord.lon, cityData.coord.lat)), appData.time, new Main(mainData.temp, mainData.pressure, mainData.humidity, mainData.temp_min, mainData.temp_max), new Wind(windData.speed, windData.deg, windData.var_beg, windData.var_end), new Clouds(cloudsData.all), weather);
 
 					dataManager.app.push(app);
+					navManager.showCities();
 					console.log(app);
 				}
 			} else {

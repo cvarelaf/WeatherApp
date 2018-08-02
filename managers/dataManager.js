@@ -10,7 +10,6 @@ class DataManager {
 	constructor() {
 		this.app = [];
 		this.currentCity = null;
-		this.navManager = null;
 	}
 
 	setCurrentCity(city) {
@@ -18,8 +17,8 @@ class DataManager {
 	}
 
 	showCityInfo(city) {
-		this.currentCity = city;
-		this.navManager.showCityInfo();
+        this.currentCity = city;
+        this.navManager.showCityInfo();
 	}
 
 }
