@@ -41,18 +41,6 @@ function init() {
 						}
 						console.log(weatherData);
 						
-						var coord = new Coord(cityData.coord.lon, cityData.coord.lat);
-
-						var city = new City(cityData.id, cityData.name, cityData.findname, cityData.country, coord);
-
-						var main = new Main(mainData.temp, mainData.pressure, mainData.humidity, mainData.temp_min, mainData.temp_max);
-						
-						var wind = new Wind(windData.speed, windData.deg, windData.var_beg, windData.var_end);
-
-						var clouds = new Clouds(cloudsData.all);
-
-						var weather = new Weather(weatherData.id, weatherData.main, weatherData.description);
-
 						var app = new App(new City(cityData.id, cityData.name, cityData.findname, cityData.country, new Coord(cityData.coord.lon, cityData.coord.lat)), appData.time, new Main(mainData.temp, mainData.pressure, mainData.humidity, mainData.temp_min, mainData.temp_max), new Wind(windData.speed, windData.deg, windData.var_beg, windData.var_end), new Clouds(cloudsData.all), new Weather(weatherData.id, weatherData.main, weatherData.description));
 
 						dataManager.app.push(app);
