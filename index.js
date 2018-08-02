@@ -29,26 +29,34 @@ function init() {
 		if (request.readyState == XMLHttpRequest.DONE) {
 			if (request.status == 200) {
 				var data = JSON.parse(request.responseText);
-					for (var key in data) {
-						var appData = data[key];
-						var cityData = data[key].city;
-						var mainData = data[key].main;
-						var windData = data[key].wind;
-						var cloudsData = data[key].clouds;
-						var weatherData = data[key].weather;
-						for(let key = 0; key < appData.length; index++){
-							weatherData = data[key].weather;
-						}
-						console.log(weatherData);
-						
-						var app = new App(new City(cityData.id, cityData.name, cityData.findname, cityData.country, new Coord(cityData.coord.lon, cityData.coord.lat)), appData.time, new Main(mainData.temp, mainData.pressure, mainData.humidity, mainData.temp_min, mainData.temp_max), new Wind(windData.speed, windData.deg, windData.var_beg, windData.var_end), new Clouds(cloudsData.all), new Weather(weatherData.id, weatherData.main, weatherData.description));
+				for (var key in data) {
 
-						dataManager.app.push(app);
-						console.log(app);
+					var appData = data[key];
+					var cityData = data[key].city;
+					var mainData = data[key].main;
+					var windData = data[key].wind;
+					var cloudsData = data[key].clouds;
+					var weatherData = data[key].weather;
+
+
+					var weather = null;
+					for (const weatherKey in weatherData) {
+						if (weatherData.hasOwnProperty(weatherKey)) {
+							const element = weatherData[weatherKey];
+							//console.log(element);
+							weather = new Weather(element.id, element.main, element.description);
+							//console.log(weather);
+						}
 					}
-			}else {
-					console.log('Server Error');
+
+					var app = new App(new City(cityData.id, cityData.name, cityData.findname, cityData.country, new Coord(cityData.coord.lon, cityData.coord.lat)), appData.time, new Main(mainData.temp, mainData.pressure, mainData.humidity, mainData.temp_min, mainData.temp_max), new Wind(windData.speed, windData.deg, windData.var_beg, windData.var_end), new Clouds(cloudsData.all), weather);
+
+					dataManager.app.push(app);
+					console.log(app);
 				}
+			} else {
+				console.log('Server Error');
+			}
 		}
 	}
 
