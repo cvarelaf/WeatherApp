@@ -7,7 +7,7 @@ class NavManager {
 
     showCities() {
         //Se usa el app como model ya que tiene todos los datos necesarios [no this.dataManager.app]
-        this.cityComponent.innerHTML = 'Cities:<br>\n<br>\n';
+        this.cityComponent.innerHTML = 'City List:<br>\n<br>\n';
         this.dataManager.app.forEach(app => {
             var cityComponent = new CityComponent(app, this.cityComponent, this.dataManager);
         });

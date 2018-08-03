@@ -1,10 +1,10 @@
-/* Add your amazing style here! */
+/*Add your amazing style here!*/
 body {
 	padding: 0;
 	margin: 0;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	font-family: 'montserrat';
-	background-image: url(../img/bg1.jpg);
+	background-image: url(../img/bg2.png);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -16,9 +16,11 @@ p{
 }
 
 .appComponent {
+	margin-top: 5%;
+	margin-left: 45%;
 	display: flex;
 	width:50%;
-	margin: 30px;
+	
 }
 
 h1{
