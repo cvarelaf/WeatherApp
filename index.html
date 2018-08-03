@@ -18,11 +18,17 @@
 	<script src="models/main.js"></script>
 	<script src="models/weather.js"></script>
 	<script src="models/wind.js"></script>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/cityComponent.css">
+	<link rel="stylesheet" href="css/climateComponent.css">
 </head>
 <body>
 	<h1> Project: weatherApp</h1></body>
-	<div id="cityComponent" class="cityComponent">City Info</div>
-	<div id="climateComponent" class="climateComponent">Climate Info</div>
+	<div id="appComponent" class="appComponent">
+		<div id="cityList" class="cityList">
+			<div id="cityComponent" class="cityComponent"></div>
+		</div>
+		<div id="climateComponent" class="climateComponent"></div>
+	</div>
 </body>
 </html>

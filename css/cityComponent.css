@@ -1,0 +1,28 @@
+.cityList {
+    background-color: rgb(13, 48, 10);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    width: 50%;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.cityComponent{
+    display: inline;
+}
+
+button {
+    margin: 2px;
+    width:48%;
+    background-color:  rgb(255, 255, 255);
+    border-radius: 12px;
+    text-decoration: none;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    font-size: 10px;
+}
+
+button:hover {
+    background-color: rgb(20, 13, 44);
+    color: rgb(255, 255, 255);
+}

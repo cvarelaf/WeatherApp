@@ -6,6 +6,8 @@ class ClimateComponent extends Component {
         this.container.className = 'climateComponent';
 
         //Create Elements
+        this.name = document.createElement('p');
+        this.country = document.createElement('p');
         this.time = document.createElement('p'); 
         this.temp = document.createElement('p'); 
         this.pressure = document.createElement('p'); 
@@ -14,6 +16,8 @@ class ClimateComponent extends Component {
         this.description = document.createElement('p'); 
 
         //Add Elements
+        this.container.appendChild(this.name);
+        this.container.appendChild(this.country);
         this.container.appendChild(this.time);
         this.container.appendChild(this.temp);
         this.container.appendChild(this.pressure);
@@ -29,6 +33,8 @@ class ClimateComponent extends Component {
         REPLACE FOR
         this.id.innerHTML = this.model.city.id;
         */
+        this.name.innerHTML = 'Name: ' + this.model.city.name;
+        this.country.innerHTML = 'Country: ' + this.model.city.country;
         this.time.innerHTML = 'Time: ' + this.model.time;
         this.temp.innerHTML = 'Temperature: ' + this.model.main.temp;
         this.pressure.innerHTML = 'Pressure: ' + this.model.main.pressure;
