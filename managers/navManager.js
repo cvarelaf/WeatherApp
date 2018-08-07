@@ -11,7 +11,6 @@ class NavManager {
         this.dataManager.app.forEach(app => {
             var cityComponent = new CityComponent(app, this.cityComponent, this.dataManager);
         });
-        this.showCityInfo();
     }
 
     showCityInfo() {
