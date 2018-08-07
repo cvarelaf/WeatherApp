@@ -35,7 +35,7 @@ class ClimateComponent extends Component {
         */
         this.name.innerHTML = 'Name: ' + this.model.city.name;
         this.country.innerHTML = 'Country: ' + this.model.city.country;
-        this.time.innerHTML = 'Time: ' + this.model.time;
+        this.time.innerHTML = 'Time: ' + dataManager.msToTime(this.model.time);
         this.temp.innerHTML = 'Temperature: ' + this.model.main.temp;
         this.pressure.innerHTML = 'Pressure: ' + this.model.main.pressure;
         this.humidity.innerHTML = 'Humidity: ' + this.model.main.humidity;
