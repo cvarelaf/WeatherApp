@@ -31,7 +31,10 @@ class DataManager {
 			hours = (hours < 10) ? "0" + hours : hours;
 			minutes = (minutes < 10) ? "0" + minutes : minutes;
 			seconds = (seconds < 10) ? "0" + seconds : seconds;
-			
-			return hours + ":" + minutes + ":" + seconds; //+ "." + milliseconds;
+			if (hours<=11){
+				return hours + ":" + minutes + ":" + seconds + " AM"; //+ "." + milliseconds;
+			}else{
+				return hours + ":" + minutes + ":" + seconds + " PM"; //+ "." + milliseconds;
+			}
 	}
 }
