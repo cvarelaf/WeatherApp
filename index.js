@@ -19,7 +19,7 @@ function init() {
 
 	function loadWeather() {
 		var request = new XMLHttpRequest();
-		request.open('GET', 'json/weather.json', true);
+		request.open('GET', 'https://api.myjson.com/bins/17z8mg', true);
 		request.onreadystatechange = loadWeatherCallback;
 		request.send();
 	}
