@@ -41,7 +41,7 @@ class ClimateComponent extends Component {
         this.humidity.innerHTML = 'Humidity: ' + this.model.main.humidity;
         this.main.innerHTML = 'Status: ' + this.model.weather.main;
         this.description.innerHTML = 'Description: ' + this.model.weather.description;
-
+        
         this.container.app = this.model;
 
     }
